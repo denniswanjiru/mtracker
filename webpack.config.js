@@ -7,7 +7,7 @@ module.exports = {
     signup: "./src/signup.js"
   },
   output: {
-    path: path.resolve(__dirname, "public"),
+    path: path.resolve(__dirname, "public/dist"),
     filename: "[name].bundle.js"
   },
   module: {
