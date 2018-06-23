@@ -1,4 +1,4 @@
-const baseUrl = "https://m-tracker-app.herokuapp.com/api/v2";
+const baseUrl = "http://127.0.0.1:5000/api/v2";
 
 export const get = (endpoint, token) => {
   return fetch(`${baseUrl}${endpoint}`, {

@@ -1,22 +1,42 @@
 import { signupElems } from "./nodes";
 import { post } from "./api";
 
+const state = {
+  data: {},
+  errors: {},
+  success: null
+};
+
 const elements = signupElems();
-let data = {};
 const submitSignup = document.forms.signup.elements.submit;
 
-Object.entries(elements).map(val => {
-  const el = val[1];
+Object.values(elements).map(el => {
   el.addEventListener("change", e => {
-    data[e.target.name] = e.target.value;
-    console.log(data);
+    state.data[e.target.name] = e.target.value;
+    console.log(state.data);
   });
 });
 
 submitSignup.addEventListener("click", e => {
   e.preventDefault();
-  post("/users/auth/signup/", data)
-    .then(res => res.json())
-    .then(data => console.log(data))
-    .catch(err => console.error(err));
+  post("/users/auth/signup/", state.data)
+    .then(res => {
+      state.success = res.ok;
+      return res.json();
+    })
+    .then(data => {
+      if (state.success) {
+        localStorage.setItem("success", data.message);
+        window.location.replace("http://127.0.0.1:8080/auth/signin.html");
+      } else {
+        Object.values(data).map(value => {
+          Object.entries(value).map(val => {
+            state.errors[val[0]] = val[1];
+          });
+        });
+      }
+      console.log(state.errors);
+      console.log(localStorage.success);
+    })
+    .catch(err => console.log(err.message));
 });
