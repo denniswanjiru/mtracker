@@ -10,3 +10,13 @@ export const signupElems = () => {
     confirmPassword: confirm_password
   };
 };
+
+export const signinElems = () => {
+  const signin = document.forms.signin;
+  const { username, password } = signin.elements;
+
+  return {
+    username,
+    password
+  };
+};

@@ -19,6 +19,7 @@ Object.values(elements).map(el => {
 
 submitSignup.addEventListener("click", e => {
   e.preventDefault();
+  console.log(state.data);
   post("/users/auth/signup/", state.data)
     .then(res => {
       state.success = res.ok;
@@ -36,7 +37,6 @@ submitSignup.addEventListener("click", e => {
         });
       }
       console.log(state.errors);
-      console.log(localStorage.success);
     })
     .catch(err => console.log(err.message));
 });
