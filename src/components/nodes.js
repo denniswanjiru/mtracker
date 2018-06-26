@@ -1,4 +1,4 @@
-export const signupElems = () => {
+export const signupNodes = () => {
   const signup = document.forms.signup;
   const { name, username, email, password, confirm_password } = signup.elements;
 
@@ -11,7 +11,7 @@ export const signupElems = () => {
   };
 };
 
-export const signinElems = () => {
+export const signinNodes = () => {
   const signin = document.forms.signin;
   const { username, password } = signin.elements;
 
