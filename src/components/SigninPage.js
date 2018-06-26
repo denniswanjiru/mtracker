@@ -1,5 +1,5 @@
 import { signinNodes } from "../nodes";
-import { post } from "../api";
+import api from "./api";
 
 class SigninPage {
   constructor() {
@@ -30,7 +30,8 @@ class SigninPage {
     this.submit.addEventListener("click", e => {
       e.preventDefault();
       console.log(this.state.data);
-      post("/users/auth/signin/", this.state.data)
+      api
+        .post("/users/auth/signin/", this.state.data)
         .then(res => {
           Object.assign(this.state, { success: res.ok });
           return res.json();

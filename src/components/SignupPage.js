@@ -1,5 +1,5 @@
 import { signupElems } from "../nodes";
-import { post } from "../api";
+import api from "./api";
 
 class SignupPage {
   constructor() {
@@ -30,7 +30,8 @@ class SignupPage {
     this.submit.addEventListener("click", e => {
       e.preventDefault();
       console.log(this.state.data);
-      post("/users/auth/signup/", this.state.data)
+      api
+        .post("/users/auth/signup/", this.state.data)
         .then(res => {
           Object.assign(this.state, { success: res.ok });
           return res.json();
