@@ -4,8 +4,8 @@ module.exports = {
   mode: "development",
   entry: {
     app: "./src/app.js",
-    signup: "./src/signup.js",
-    signin: "./src/signin.js"
+    signin: "./src/signin.js",
+    signup: "./src/components/SignupPage.js"
   },
   output: {
     path: path.resolve(__dirname, "public/dist"),
@@ -19,7 +19,7 @@ module.exports = {
         use: {
           loader: "babel-loader",
           options: {
-            presets: ["babel-preset-env"]
+            presets: ["babel-preset-env", "stage-2"]
           }
         }
       }
