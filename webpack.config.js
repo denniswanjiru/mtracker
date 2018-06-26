@@ -5,7 +5,8 @@ module.exports = {
   entry: {
     app: "./src/app.js",
     signin: "./src/components/SigninPage.js",
-    signup: "./src/components/SignupPage.js"
+    signup: "./src/components/SignupPage.js",
+    requests: "./src/components/Requests.js"
   },
   output: {
     path: path.resolve(__dirname, "public/dist"),
