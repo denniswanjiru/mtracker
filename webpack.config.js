@@ -4,7 +4,7 @@ module.exports = {
   mode: "development",
   entry: {
     app: "./src/app.js",
-    signin: "./src/signin.js",
+    signin: "./src/components/SigninPage.js",
     signup: "./src/components/SignupPage.js"
   },
   output: {
