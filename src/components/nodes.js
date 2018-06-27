@@ -38,3 +38,14 @@ export const requestsNodes = () => {
 
   return { root, total, filters: filterSection };
 };
+
+export const dashboardNodes = () => {
+  return select([
+    "content",
+    "all",
+    "pending",
+    "approved",
+    "resolved",
+    "rejected"
+  ]);
+};
