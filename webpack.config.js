@@ -4,6 +4,7 @@ module.exports = {
   mode: "development",
   entry: {
     app: "./src/app.js",
+    dashboard: "./src/components/Dashboard.js",
     signin: "./src/components/SigninPage.js",
     signup: "./src/components/SignupPage.js",
     requests: "./src/components/Requests.js"
