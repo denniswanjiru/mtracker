@@ -1,3 +1,11 @@
+const select = selectors => {
+  const nodes = {};
+  selectors.map(selector => {
+    nodes[selector] = document.getElementById(selector);
+  });
+  return nodes;
+};
+
 export const signupNodes = () => {
   const signup = document.forms.signup;
   const { name, username, email, password, confirm_password } = signup.elements;
@@ -19,4 +27,14 @@ export const signinNodes = () => {
     username,
     password
   };
+};
+
+export const requestsNodes = () => {
+  const { root, total, filterSection } = select([
+    "root",
+    "total",
+    "filterSection"
+  ]);
+
+  return { root, total, filters: filterSection };
 };
