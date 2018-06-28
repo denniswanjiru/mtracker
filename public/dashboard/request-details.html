@@ -7,6 +7,12 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="../assets/css/styles.css">
   <link rel="stylesheet" href="../assets/css/dashboard/main.css">
+  <script>
+    token = localStorage.getItem("token");
+    if (!token) {
+      window.location.replace("http://127.0.0.1:8080/auth/signin.html");
+    }
+  </script>
   <title>Dashoard | M-tracker</title>
 </head>
 
