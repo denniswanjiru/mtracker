@@ -49,3 +49,7 @@ export const dashboardNodes = () => {
     "rejected"
   ]);
 };
+
+export const detailsNodes = () => {
+  return select(["content", "actions"]);
+};
