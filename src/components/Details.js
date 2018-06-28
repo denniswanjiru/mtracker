@@ -89,7 +89,10 @@ class Details extends Component {
                       reject.setAttribute("disabled", "disabled");
                       approve.innerHTML = "Approving...";
                       api
-                        .update(`/requests/${id}/approve/`, this.state.token)
+                        .update(
+                          `/requests/${this.id}/approve/`,
+                          this.state.token
+                        )
                         .then(res => res.json())
                         .then(data => console.log(data));
                       location.reload();
