@@ -79,7 +79,7 @@ class Requests extends Component {
                 root.innerHTML = `
                   <h1>
                     ${data.message}. Make a new request
-                    <a href="http://127.0.0.1:8080/pages/new-request.html">here</a>
+                    <a href="http://127.0.0.1:8080/requests/new/">here</a>
                   </h1>`;
               } else {
                 const hasExpired = Object.values(data).includes(
@@ -87,13 +87,13 @@ class Requests extends Component {
                 );
                 if (hasExpired) {
                   localStorage.removeItem("token");
-                  redirect("/auth/signin.html");
+                  redirect("/auth/signin/");
                 }
               }
             }
           });
       } else {
-        redirect("/auth/signin.html");
+        redirect("/auth/signin/");
       }
     }, 0);
   }

@@ -48,7 +48,7 @@ class Details extends Component {
               );
               if (hasExpired) {
                 localStorage.removeItem("token");
-                redirect("/auth/signin.html");
+                redirect("/auth/signin/");
               } else {
                 const request = data.request;
                 if (request) {
@@ -133,7 +133,7 @@ class Details extends Component {
             }
           });
       } else {
-        redirect("/auth/signin.html");
+        redirect("/auth/signin/");
       }
     });
   }

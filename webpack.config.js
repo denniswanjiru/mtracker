@@ -3,11 +3,10 @@ const path = require("path");
 module.exports = {
   mode: "development",
   entry: {
-    app: "./src/app.js",
     dashboard: "./src/components/Dashboard.js",
     details: "./src/components/Details.js",
-    signin: "./src/components/SigninPage.js",
-    signup: "./src/components/SignupPage.js",
+    signin: "./src/components/Signin.js",
+    signup: "./src/components/Signup.js",
     requests: "./src/components/Requests.js"
   },
   output: {

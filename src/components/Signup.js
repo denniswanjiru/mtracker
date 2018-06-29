@@ -1,8 +1,9 @@
-import { signupNodes } from "./nodes";
 import api from "./api";
 import { Component } from "./App";
+import { redirect } from "./routes";
+import { signupNodes } from "./nodes";
 
-class SignupPage extends Component {
+class Signup extends Component {
   constructor() {
     super();
     this.state = {
@@ -57,7 +58,7 @@ class SignupPage extends Component {
           this.setState({ isFetching: false });
           if (this.state.success) {
             localStorage.setItem("success", data.message);
-            window.location.replace("http://127.0.0.1:8080/auth/signin.html");
+            redirect("/auth/signin/");
           } else {
             Object.values(data).map(value => {
               Object.entries(value).map(val => {
@@ -75,6 +76,6 @@ class SignupPage extends Component {
   }
 }
 
-const signup = new SignupPage();
+const signup = new Signup();
 signup.handleChange();
 signup.handleSubmit();

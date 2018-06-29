@@ -1,8 +1,9 @@
 import { signinNodes } from "./nodes";
+import { redirect } from "./routes";
 import { Component } from "./App";
 import api from "./api";
 
-class SigninPage extends Component {
+class Signin extends Component {
   constructor() {
     super();
     this.state = {
@@ -56,9 +57,7 @@ class SigninPage extends Component {
           this.setState({ isFetching: false });
           if (this.state.success) {
             localStorage.setItem("token", data.access_token);
-            window.location.replace(
-              "http://127.0.0.1:8080/pages/requests.html"
-            );
+            redirect("/requests/");
           } else {
             Object.entries(data).map(val => {
               errors[val[0]] = val[1];
@@ -75,6 +74,6 @@ class SigninPage extends Component {
   }
 }
 
-const signin = new SigninPage();
+const signin = new Signin();
 signin.handleChange();
 signin.handleSubmit();

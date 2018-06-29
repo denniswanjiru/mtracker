@@ -62,7 +62,7 @@ class Dashboard extends Component {
               );
               if (hasExpired) {
                 localStorage.removeItem("token");
-                redirect("/auth/signin.html");
+                redirect("/auth/signin/");
               } else {
                 const stats = { ...this.state.stats };
                 stats.all = data.requests.length;
@@ -99,7 +99,7 @@ class Dashboard extends Component {
                   tableHeader +
                   data.requests.map(
                     request =>
-                      `<a href="request-details.html?${
+                      `<a href="/dashboard/details/?${
                         request.public_id
                       }" class="table--link">
                     <div class="hr row--table">
@@ -133,7 +133,7 @@ class Dashboard extends Component {
           })
           .catch(err => console.log(err));
       } else {
-        redirect("/auth/signin.html");
+        redirect("/auth/signin/");
       }
     });
   }
