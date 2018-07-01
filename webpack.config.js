@@ -7,6 +7,7 @@ module.exports = {
     admin_details: "./src/components/Admin/RequestDetails.js",
     details: "./src/components/Client/RequestDetails.js",
     edit: "./src/components/Client/Edit.js",
+    newRequest: "./src/components/Client/NewRequest.js",
     requests: "./src/components/Client/Requests.js",
     signin: "./src/components/Guest/Signin.js",
     signup: "./src/components/Guest/Signup.js"
