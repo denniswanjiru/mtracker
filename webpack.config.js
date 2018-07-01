@@ -3,12 +3,13 @@ const path = require("path");
 module.exports = {
   mode: "development",
   entry: {
-    app: "./src/app.js",
-    dashboard: "./src/components/Dashboard.js",
-    details: "./src/components/Details.js",
-    signin: "./src/components/SigninPage.js",
-    signup: "./src/components/SignupPage.js",
-    requests: "./src/components/Requests.js"
+    dashboard: "./src/components/Admin/Dashboard.js",
+    admin_details: "./src/components/Admin/RequestDetails.js",
+    details: "./src/components/Client/RequestDetails.js",
+    edit: "./src/components/Client/Edit.js",
+    requests: "./src/components/Client/Requests.js",
+    signin: "./src/components/Guest/Signin.js",
+    signup: "./src/components/Guest/Signup.js"
   },
   output: {
     path: path.resolve(__dirname, "public/dist"),

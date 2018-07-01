@@ -1,6 +1,6 @@
 class Api {
   constructor() {
-    this.baseUrl = "https://m-tracker-app.herokuapp.com/api/v2";
+    this.baseUrl = "http://127.0.0.1:5000/api/v2";
   }
 
   get(endpoint, token) {
@@ -35,7 +35,7 @@ class Api {
     });
   }
 
-  delete(endpoint, data, token) {
+  delete(endpoint, token) {
     return fetch(`${this.baseUrl}${endpoint}`, {
       method: "DELETE",
       headers: {

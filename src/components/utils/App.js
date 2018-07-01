@@ -1,5 +1,6 @@
 export class Component {
-  constructor() {
+  constructor(props) {
+    this.props = props;
     this.setState = this.setState.bind(this);
   }
 

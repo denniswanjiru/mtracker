@@ -1,11 +1,11 @@
-import { Component } from "./App";
-import { dashboardNodes } from "./nodes";
-import api from "./api";
-import { redirect } from "./routes";
+import { Component } from "../utils/App";
+import { dashboardNodes } from "../utils/nodes";
+import api from "../utils/api";
+import { redirect } from "../utils/routes";
 
 class Dashboard extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       isAuthenticated: false,
       isFetching: false,
@@ -22,6 +22,7 @@ class Dashboard extends Component {
     };
     this.elems = dashboardNodes();
     this.handleTokenUpdate();
+    this.fetchRequests();
   }
 
   handleTokenUpdate() {
@@ -62,7 +63,7 @@ class Dashboard extends Component {
               );
               if (hasExpired) {
                 localStorage.removeItem("token");
-                redirect("/auth/signin.html");
+                redirect("/auth/signin/");
               } else {
                 const stats = { ...this.state.stats };
                 stats.all = data.requests.length;
@@ -98,11 +99,9 @@ class Dashboard extends Component {
                 this.elems.content.innerHTML =
                   tableHeader +
                   data.requests.map(
-                    request =>
-                      `<a href="request-details.html?${
-                        request.public_id
-                      }" class="table--link">
-                    <div class="hr row--table">
+                    request => `
+                    <a href="details/?${request.public_id}" class="table--link">
+                      <div class="hr row--table">
                       <div class="table__data table__data--md">
                         ${
                           request.title.length > 22
@@ -133,11 +132,9 @@ class Dashboard extends Component {
           })
           .catch(err => console.log(err));
       } else {
-        redirect("/auth/signin.html");
+        redirect("/auth/signin/");
       }
     });
   }
 }
-
 const dashboard = new Dashboard();
-dashboard.fetchRequests();

@@ -29,6 +29,13 @@ export const signinNodes = () => {
   };
 };
 
+export const requestFormNodes = () => {
+  const request = document.forms.request;
+  const { title, location, request_type, description } = request.elements;
+
+  return { title, location, request_type, description };
+};
+
 export const requestsNodes = () => {
   const { root, total, filterSection } = select([
     "root",

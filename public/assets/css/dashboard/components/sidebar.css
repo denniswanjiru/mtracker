@@ -20,14 +20,14 @@
 
 .link--sidebar {
   color: var(--text-color-light);
-  font-size: 1.4rem;
+  font-size: 1rem;
   text-transform: uppercase;
 }
 
 .icon--sidebar {
   fill: var(--text-color-light);
   order: -1;
-  margin-right: 2rem;
+  margin-right: 1.8rem;
 }
 
 .brand--sidebar {

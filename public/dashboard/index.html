@@ -10,7 +10,7 @@
   <script>
     token = localStorage.getItem("token");
     if (!token) {
-      window.location.replace("http://127.0.0.1:8080/auth/signin.html");
+      window.location.replace("http://127.0.0.1:8080/auth/signin/");
     }
   </script>
   <title>Dashoard | M-tracker</title>
@@ -26,7 +26,7 @@
 
         <ul class="sidebar__nav">
           <li class="sidebar__link-item active">
-            <a href="/dashboard" class="link link--sidebar">Home</a>
+            <a href="/dashboard/" class="link link--sidebar">Home</a>
             <svg class="icon icon--sidebar">
               <use xlink:href="../assets/icons/sprite.svg#icon-home-lite"></use>
             </svg>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../../assets/css/styles.css">
+    <script>
+        token = localStorage.getItem("token");
+        if (!token) {
+            window.location.replace("http://127.0.0.1:8080/auth/signin/");
+        }
+    </script>
+    <title>View Request | M-tracker</title>
+</head>
+
+<body>
+    <aside class="mobile-nav hidden" id="mobile-nav">
+        <div class="brand brand--mobile hr">
+            <span>M-tracker</span>
+        </div>
+        <ul sidebar__nav>
+            <li class="sidebar__link-item mobile-item">
+                <a href="" class="link link--sidebar mobile-link">Home</a>
+                <svg class="icon icon--sidebar mobile-icon">
+                    <use xlink:href="../../assets/icons/sprite.svg#icon-home-lite"></use>
+                </svg>
+            </li>
+            <li class="sidebar__link-item mobile-item">
+                <a href="/requests/" class="link link--sidebar mobile-link">Requests</a>
+                <svg class="icon icon--sidebar mobile-icon">
+                    <use xlink:href="../../assets/icons/sprite.svg#icon-layers"></use>
+                </svg>
+            </li>
+            <li class="sidebar__link-item mobile-item">
+                <a href="requests/new/" class="link link--sidebar mobile-link">Make request</a>
+                <svg class="icon icon--sidebar mobile-icon">
+                    <use xlink:href="../../assets/icons/sprite.svg#icon-activity"></use>
+                </svg>
+            </li>
+            <li class="sidebar__link-item mobile-item">
+                <a href="#" class="link link--sidebar mobile-link">Sign outt</a>
+                <svg class="icon icon--sidebar mobile-icon">
+                    <use xlink:href="../../assets/icons/sprite.svg#icon-log-out"></use>
+                </svg>
+            </li>
+        </ul>
+    </aside>
+    <header>
+        <nav class="nav nav--primary">
+            <span class="brand text-white">
+                <a href="/" class="link text-white">M-tracker</a>
+            </span>
+
+            <svg class="icon icon--menu show-on-mobile" id="hamburger">
+                <use xlink:href="../../assets/icons/sprite.svg#icon-list"></use>
+            </svg>
+            <ul class="nav--right">
+                <li class="nav__item">
+                    <a href="/requests/" class="nav__link">Requests</a>
+                </li>
+                <li class="nav__item">
+                    <a href="/requests/new/" class="nav__link">Make Request</a>
+                </li>
+                <button class="btn--dropdown" id="signout-btn">
+                    Dennis Wanjiru
+                    <svg class="icon">
+                        <use xlink:href="../../assets/icons/sprite.svg#icon-chevron-down"></use>
+                    </svg>
+                </button>
+
+                <div id="signout" class="hidden">
+                    <a href="#">Sign out</a>
+                </div>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container--fluid">
+        <section class="section section--requests">
+            <div class="fab white back-top mb-md" id="back">
+                <svg class="icon">
+                    <use xlink:href="../../assets/icons/sprite.svg#icon-arrow-left"></use>
+                </svg>
+            </div>
+
+            <div id="content"></div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__content">
+            <div class="row">
+                <div class="col col--md col--flex">
+                    <span class="brand text-white">M-tracker</span>
+                    <p class="text-white">M-tracker helps you to make requests for maintenance/repair services. We will receive the request and
+                        either approve or reject it. If the request is approved the you are notified and you get the appropriate
+                        services as you requested.</p>
+                    <a href="/requests/new/" class="btn--start btn__link text-blue">Make Request</a>
+                </div>
+
+                <div class="col col--md  social">
+                    <div class="circle-wrapper">
+                        <svg class="icon">
+                            <use xlink:href="../../assets/icons/sprite.svg#icon-twitter"></use>
+                        </svg>
+                    </div>
+                    <div class="circle-wrapper">
+                        <svg class="icon">
+                            <use xlink:href="../../assets/icons/sprite.svg#icon-facebook"></use>
+                        </svg>
+                    </div>
+                    <div class="circle-wrapper">
+                        <svg class="icon">
+                            <use xlink:href="../../assets/icons/sprite.svg#icon-instagram"></use>
+                        </svg>
+                    </div>
+                    <div class="circle-wrapper">
+                        <svg class="icon">
+                            <use xlink:href="../../assets/icons/sprite.svg#icon-linkedin"></use>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <span>&copy; 2018 M-tracker. All Rights Reserved</span>
+        </div>
+    </footer>
+    <script src="../../dist/details.bundle.js"></script>
+</body>
+
+</html>
