@@ -1,31 +1,32 @@
-import api from "./api";
-import { Component } from "./App";
-import { redirect } from "./routes";
-import { signupNodes } from "./nodes";
+import { signinNodes } from "../utils/nodes";
+import { redirect } from "../utils/routes";
+import { Component } from "../utils/App";
+import api from "../utils/api";
 
-class Signup extends Component {
-  constructor() {
-    super();
+class Signin extends Component {
+  constructor(props) {
+    super(props);
     this.state = {
       data: {},
       errors: {},
-      success: null,
-      isFetching: false
+      success: null
     };
-    this.elements = signupNodes();
-    this.submit = document.forms.signup.elements.submit;
+    this.elements = signinNodes();
+    this.submit = document.forms.signin.elements.submit;
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange();
+    this.handleSubmit();
     this.showLoaders();
   }
 
   showLoaders() {
     setInterval(() => {
       if (this.state.isFetching) {
-        this.submit.innerHTML = "Signing up...";
+        this.submit.innerHTML = "Signing in...";
         this.submit.setAttribute("disabled", "disabled");
       } else {
-        this.submit.innerHTML = "Sign up";
+        this.submit.innerHTML = "Sign in";
         this.submit.removeAttribute("disabled");
       }
     }, 0);
@@ -47,9 +48,9 @@ class Signup extends Component {
     this.submit.addEventListener("click", e => {
       e.preventDefault();
       this.setState({ isFetching: true });
-      console.log(this.state);
+      console.log(this.state.data);
       api
-        .post("/users/auth/signup/", this.state.data)
+        .post("/users/auth/signin/", this.state.data)
         .then(res => {
           this.setState({ success: res.ok });
           return res.json();
@@ -57,25 +58,22 @@ class Signup extends Component {
         .then(data => {
           this.setState({ isFetching: false });
           if (this.state.success) {
-            localStorage.setItem("success", data.message);
-            redirect("/auth/signin/");
+            localStorage.setItem("token", data.access_token);
+            redirect("/requests/");
           } else {
-            Object.values(data).map(value => {
-              Object.entries(value).map(val => {
-                errors[val[0]] = val[1];
-                this.setState({ errors });
-              });
+            Object.entries(data).map(val => {
+              errors[val[0]] = val[1];
+              this.setState({ errors });
             });
+            console.log(this.state.errors);
           }
         })
         .catch(err => {
-          this.setState({ isFetching: false });
+          this.setState({ isFetching: true });
           console.log(err.message);
         });
     });
   }
 }
 
-const signup = new Signup();
-signup.handleChange();
-signup.handleSubmit();
+const signin = new Signin();

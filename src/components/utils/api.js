@@ -35,7 +35,7 @@ class Api {
     });
   }
 
-  delete(endpoint, data, token) {
+  delete(endpoint, token) {
     return fetch(`${this.baseUrl}${endpoint}`, {
       method: "DELETE",
       headers: {

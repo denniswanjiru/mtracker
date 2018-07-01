@@ -28,13 +28,13 @@
         </svg>
       </li>
       <li class="sidebar__link-item mobile-item">
-        <a href="requests.html" class="link link--sidebar mobile-link">Requests</a>
+        <a href="/requests/" class="link link--sidebar mobile-link">Requests</a>
         <svg class="icon icon--sidebar mobile-icon">
           <use xlink:href="../assets/icons/sprite.svg#icon-layers"></use>
         </svg>
       </li>
       <li class="sidebar__link-item mobile-item">
-        <a href="new-request.html" class="link link--sidebar mobile-link">Make request</a>
+        <a href="new" class="link link--sidebar mobile-link">Make request</a>
         <svg class="icon icon--sidebar mobile-icon">
           <use xlink:href="../assets/icons/sprite.svg#icon-activity"></use>
         </svg>
@@ -50,7 +50,7 @@
   <header>
     <nav class="nav nav--primary">
       <span class="brand text-white">
-        <a href="../index.html" class="link text-white">M-tracker</a>
+        <a href="/" class="link text-white">M-tracker</a>
       </span>
 
       <svg class="icon icon--menu show-on-mobile" id="hamburger">
@@ -58,10 +58,10 @@
       </svg>
       <ul class="nav--right">
         <li class="nav__item">
-          <a href="requests.html" class="nav__link">Requests</a>
+          <a href="/requests/" class="nav__link">Requests</a>
         </li>
         <li class="nav__item">
-          <a href="new-request.html" class="nav__link">Make Request</a>
+          <a href="new/l" class="nav__link">Make Request</a>
         </li>
         <button class="btn--dropdown" id="signout-btn">
           Dennis Wanjiru
@@ -110,7 +110,7 @@
 
           <div class="dropdown">
             <button class="btn--dropdown" id="sort-btn">
-              Sort by
+              Order by
               <div class="btn__icon">
                 <svg class="icon">
                   <use xlink:href="../assets/icons/sprite.svg#icon-chevron-down"></use>
@@ -119,8 +119,8 @@
             </button>
 
             <div id="sort" class="hidden">
-              <a href="#">Ascending</a>
-              <a href="#">Descending</a>
+              <a href="#">Earliest</a>
+              <a href="#">Latest</a>
             </div>
           </div>
         </div>
@@ -138,7 +138,7 @@
           <span class="brand text-white">M-tracker</span>
           <p class="text-white">M-tracker helps you to make requests for maintenance/repair services. We will receive the request and either approve
             or reject it. If the request is approved the you are notified and you get the appropriate services as you requested.</p>
-          <a href="new-request.html" class="btn--start btn__link text-blue">Make Request</a>
+          <a href="new/" class="btn--start btn__link text-blue">Make Request</a>
         </div>
 
         <div class="col col--md  social">
@@ -169,9 +169,6 @@
       <span>&copy; 2018 M-tracker. All Rights Reserved</span>
     </div>
   </footer>
-
-  <!-- <script src="../static/js/dropdown.js"></script>
-  <script src="../static/js/mobile-nav.js"></script> -->
   <script src="../dist/requests.bundle.js"></script>
 </body>
 

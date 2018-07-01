@@ -1,11 +1,11 @@
-import api from "./api";
-import { Component } from "./App";
-import { redirect } from "./routes";
-import { requestsNodes } from "./nodes";
+import api from "../utils/api";
+import { Component } from "../utils/App";
+import { redirect } from "../utils/routes";
+import { requestsNodes } from "../utils/nodes";
 
 class Requests extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       isAuthenticated: false,
       isFetching: false,
@@ -15,6 +15,7 @@ class Requests extends Component {
     };
     this.elems = requestsNodes();
     this.handleTokenUpdate();
+    this.fetchRequests();
     this.showLoaders();
   }
 
@@ -56,21 +57,29 @@ class Requests extends Component {
               root.innerHTML = data.requests.map(
                 request => `
                 <div class="col col--3">
-                    <div class="card card--request">
-                    <div class="card__header hr">
-                        <h1>${request.title}</h1>
-                        <p class="date">Sep 20th</p>
-                    </div>
-                    <div class="card__content hr">
-                        <p>${request.description}</p>
-                    </div>
-                    <div class="card__footer">
-                        <em>${request.request_type}</em>
-                        <span class="status status--${request.status}">
-                        <p>${request.status}</p>
-                        </span>
-                    </div>
-                    </div>
+                    <a href="view/?${request.public_id}" class="link">
+                      <div class="card card--request">
+                      <div class="card__header hr">
+                          <h1>${request.title}</h1>
+                          <p class="date">Sep 20th</p>
+                      </div>
+                      <div class="card__content hr">
+                          <p>
+                          ${
+                            request.description.length > 84
+                              ? request.description.substr(0, 84) + "..."
+                              : request.description
+                          }
+                        </p>
+                      </div>
+                      <div class="card__footer">
+                          <em>${request.request_type}</em>
+                          <span class="status status--${request.status}">
+                          <p>${request.status}</p>
+                          </span>
+                      </div>
+                      </div>
+                    </a>
                 </div>
             `
               );
@@ -100,4 +109,3 @@ class Requests extends Component {
 }
 
 const requests = new Requests();
-requests.fetchRequests();
